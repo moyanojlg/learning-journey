@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <title>Interactive To-Do List with statics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <main>
+    <h1>Task Manager</h1>
+
+    <section class="form-group">
+      <div class="form-row">
+        <label for="task-name">Task name:</label>
+        <input id="task-name" type="text" required placeholder="Write here the name the task">
+      </div>
+
+      <div class="form-row">
+        <label for="priorities">Priority Level</label>
+        <select id="priorities" name="priorities" required>
+          <option value="" disabled>Select one option</option>
+          <option value="1">Urgent</option>
+          <option value="2">Important</option>
+          <option value="3">Low Priority</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="limit-date">Deadline:</label>
+        <input required id="limit-date" type="date" min="2026-07-27">
+      </div>
+
+      <button id="add-task">Add Task</button>
+
+      <div id="task-list"></div>
+      <div id="stats"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

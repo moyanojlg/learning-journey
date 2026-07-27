@@ -1,0 +1,235 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-primary: #F8F6F1;
+  --bg-white: #FFFFFF;
+  --bg-hover: #F5F5F2;
+
+  --text-primary: #2C2C2C;
+  --text-secondary: #86868B;
+  --text-tertiary: #AEAEB2;
+  --text-white: #FFFFFF;
+
+  --border-light: #E5E5EA;
+  --border-lighter: #F0F0F2;
+
+  --accent-dark: #1D1D1F;
+  --accent-gold: #C9A96E;
+  --accent-graphite: #8E8E93;
+
+  --priority-urgent: #D4575A;
+  --priority-important: #E8A87C;
+  --priority-low: #B0B0B0;
+
+  --status-done: #7AA37E;
+  --status-done-bg: #E8F5E8;
+  --status-delete-bg: #FDE8E8;
+  --text-done: #AEAEB2;
+
+  --shadow-card: rgba(0, 0, 0, 0.06);
+  --shadow-hover: rgba(0, 0, 0, 0.12);
+  --shadow-focus: rgba(201, 169, 110, 0.15);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 28px;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  margin: 32px 0 24px;
+}
+
+section {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 32px;
+  box-shadow: 0 4px 24px var(--shadow-card);
+  background-color: var(--bg-white);
+  border-radius: 16px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+label {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--text-primary);
+  background-color: var(--bg-white);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px var(--shadow-focus);
+}
+
+button#add-task {
+  width: 100%;
+  background-color: var(--accent-dark);
+  color: var(--text-white);
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 4px;
+}
+
+button#add-task:hover {
+  background-color: #000000;
+}
+
+#task-list {
+  margin-top: 24px;
+}
+
+#stats {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--bg-primary);
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+#stats span {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background-color: var(--bg-white);
+  box-shadow: 0 2px 8px var(--shadow-card);
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border-left: 3px solid transparent;
+}
+
+.priority-urgent {
+  border-left-color: var(--priority-urgent);
+}
+
+.priority-important {
+  border-left-color: var(--priority-important);
+}
+
+.priority-low {
+  border-left-color: var(--priority-low);
+}
+
+.task-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.task-info span {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.task-info p {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.completed .task-info span {
+  text-decoration: line-through;
+  color: var(--text-done);
+}
+
+.task-btn {
+  background: none;
+  border: 1px solid var(--border-light);
+  color: var(--text-secondary);
+  padding: 6px 12px;
+  width: auto;
+  font-size: 13px;
+  font-family: inherit;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.task-btn:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--priority-low);
+}
+
+.task-btn.completar {
+  border-color: var(--status-done);
+  color: var(--status-done);
+}
+
+.task-btn.completar:hover {
+  background-color: var(--status-done-bg);
+}
+
+.task-btn.eliminar {
+  border-color: var(--priority-urgent);
+  color: var(--priority-urgent);
+}
+
+.task-btn.eliminar:hover {
+  background-color: var(--status-delete-bg);
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 20px;
+    margin: 12px;
+    border-radius: 12px;
+  }
+
+  .task-item {
+    flex-wrap: wrap;
+  }
+}
